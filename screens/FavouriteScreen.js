@@ -1,12 +1,15 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React, { useContext } from "react";
+import { View, Text, ScrollView, StyleSheet, Image } from "react-native";
+import { FavouritesContext } from "../Store/Context/favourites-context";
+import { MEALS } from "../data/dummy_data";
 
-function FavouriteScreen({navigate}) {
-  return (
-    <View>
-      <Text>favourites</Text>
-    </View>
+function FavouriteScreen({ navigate }) {
+  const favouriteMealCtx = useContext(FavouritesContext);
+  const favouritesMeals = MEALS.filter((meal) =>
+    favouriteMealCtx.ids.includes(meal.id)
   );
+  console.log(favouriteMealCtx, favouritesMeals);
+  return <View></View>;
 }
 
 export default FavouriteScreen;

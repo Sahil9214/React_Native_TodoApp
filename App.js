@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MealOverviewScreen from "./screens/MealOverview";
 import MealDetailsScreen from "./screens/MealDetailsScreen";
 import FavouriteScreen from "./screens/FavouriteScreen";
+import FavouritesContextProvider from "./Store/Context/favourites-context";
 
 const Stack = createNativeStackNavigator();
 
@@ -13,6 +14,7 @@ export default function App() {
   return (
     <>
       <StatusBar style="light" />
+      <FavouritesContextProvider>
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
@@ -33,6 +35,7 @@ export default function App() {
           <Stack.Screen name="favourites" component={FavouriteScreen} />
         </Stack.Navigator>
       </NavigationContainer>
+      </FavouritesContextProvider>
     </>
   );
 }
